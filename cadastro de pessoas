@@ -1,0 +1,35 @@
+cadastro = {}
+galera = []
+mulher = []
+media = soma = 0
+while True:
+    cadastro.clear()
+    cadastro['nome'] = str(input("Nome: "))
+    cadastro['sexo'] = str(input("Sexo:[M/F] ")).upper().strip()[0]
+    if cadastro['sexo'] in "Ff":
+        mulher.append(cadastro['nome'])
+    while cadastro['sexo'] not in "MF":
+        print("Por favor, digite somente M ou F.")
+        cadastro['sexo'] = str(input("Sexo:[M/F] ")).upper().strip()[0]
+    cadastro['idade'] = int(input("Idade: "))
+    soma += cadastro['idade']
+    cont = str(input("Quer continuar?[S/N] ")).upper().strip()[0]
+    galera.append(cadastro.copy())
+    while cont not in "SN":
+        print("ERRO!!! Responda com S ou N por favor.")
+        cont = str(input("Quer continuar?[S/N] ")).upper().strip()[0]
+    if cont in "N":
+        break
+media = soma // len(galera)
+print("-="*20)
+print(f"A) Ao todo temos {len(galera)} pessoas cadastradas")
+print(f"B) A média de idade é {soma // len(galera)}")
+print(f"C) As mulheres cadastradas são {mulher}")
+print(f"D) Lista de processos que estão acima da média ")
+for p in galera:
+    if p['idade'] >= media:
+        print('  ', end="")
+        for k, v in p.items():
+            print(f"{k} = {v}; ", end="")
+        print()
+print("«« ENCERRADO »»")
