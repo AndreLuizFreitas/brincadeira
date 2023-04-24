@@ -1,0 +1,22 @@
+from random import randint
+def numeros(a,b):
+    cont = 0
+    lista = []
+    dic = {}
+    par = []
+    soma = 0
+    while True:
+        if cont <= 4:
+            vlr = (randint(a,b))
+            cont += 1
+            lista.append(vlr)
+            dic['numero']=lista [:]
+            if vlr % 2 == 0:
+                par.append(vlr)
+                soma = sum(par)
+        else:
+            break
+    print(f"Sorteando {cont} valores da lista: {dic['numero']} pronto!")
+    print(f"Somando os valores pares entre {dic['numero']}, temos {soma}")
+
+numeros(1,10)
